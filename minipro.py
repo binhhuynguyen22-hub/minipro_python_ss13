@@ -1,9 +1,9 @@
 parking_manage = []
 
 next_id = 1
-choice = 0
+choice = ''
 
-while choice != 5:
+while choice != '5':
 
     print("\n" + "=" * 55)
     print("        QUẢN LÝ BÃI XE - SMART PARKING")
@@ -17,15 +17,9 @@ while choice != 5:
 
     choice = input("Nhập lựa chọn của bạn (1-5): ")
 
-    if not choice.isdigit():
-        print("Vui lòng nhập số!")
-        continue
-
-    choice = int(choice)
-
     match choice:
 
-        case 1:
+        case '1':
 
             plate = input("Nhập biển số xe: ").strip()
 
@@ -73,25 +67,20 @@ while choice != 5:
 
             print("Check-in thành công!")
 
-        case 2:
+        case '2':
 
             if len(parking_manage) == 0:
                 print("Bãi xe hiện đang trống!")
 
             else:
                 print("-" * 55)
-                print(f"{'ID':<5}{'Biển số':<15}{'Loại xe':<15}{'Giờ vào':<10}")
+                print(f"{'ID':<5} | {'Biển số':<15} | {'Loại xe':<15} | {'Giờ vào':<10}")
                 print("-" * 55)
 
                 for vehicle in parking_manage:
-                    print(
-                        f"{vehicle['id']:<5}"
-                        f"{vehicle['plate']:<15}"
-                        f"{vehicle['type']:<15}"
-                        f"{vehicle['entry_time']:<10}"
-                    )
+                    print(f"{vehicle['id']:<5} | {vehicle['plate']:<15} | {vehicle['type']:<15} | {vehicle['entry_time']:<10}")
 
-        case 3:
+        case '3':
 
             plate = input("Nhập biển số cần tìm: ").strip()
 
@@ -110,7 +99,7 @@ while choice != 5:
             if found == False:
                 print("Không tìm thấy xe!")
 
-        case 4:
+        case '4':
 
             plate = input("Nhập biển số xe cần check-out: ").strip()
 
@@ -154,7 +143,7 @@ while choice != 5:
 
             parking_manage.remove(found_vehicle)
 
-        case 5:
+        case '5':
             print("Thoát chương trình!")
 
         case _:
